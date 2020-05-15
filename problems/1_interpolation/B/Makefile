@@ -1,0 +1,44 @@
+quadspline.svg: quadspline.gpi out.txt
+	gnuplot $<
+
+out.txt: main.exe
+	mono $< >$@
+
+main.exe: main.cs matlib.dll
+	mcs $< -reference:$(lastword $^)
+
+LIBDIR = ../../../matlib/matrix
+matlib.dll: qspline.cs $(LIBDIR)/vector.cs
+	mcs $< -target:library -out:$@
+
+ECHO=/bin/echo
+quadspline.gpi: out.txt Makefile
+	$(ECHO) '\
+	set term svg font "Arial,15" size 1024,600;\
+	set out "quadspline.svg";\
+	set multiplot layout 2,2 title "Quadratic Spline, Derivative and Integral of sin(x)" font ",18";\
+	set key top right;\
+	set xtics 1;\
+	set grid;\
+	set rmargin 0;\
+	plot [][-1.5:1.5]\
+ 	"out.txt" index 0 with points pointtype 7 title "points"\
+ 	,"out.txt" index 1 u 1:2 with lines title "exact"\
+ 	,"out.txt" index 1 u 1:3 with lines title "qspline";\
+	set key bottom right;\
+	set ytics 1;\
+	set rmargin;\
+	plot [][-2:1.2]\
+ 	"out.txt" index 2 u 1:2 with lines title "exact derivative"\
+ 	,"out.txt" index 2 u 1:3 with lines title "spline derivative";\
+	set ytics 1;\
+	set key top right;\
+	set rmargin 0;\
+	plot [][0:2.5]\
+ 	"out.txt" index 3 u 1:2 with lines title "exact integral"\
+	,"out.txt" index 3 u 1:3 with lines title "spline integral";\
+	unset multiplot;\
+	'| gnuplot
+
+clean:
+	rm -f *.exe *.dll *.gpi *.svg out*

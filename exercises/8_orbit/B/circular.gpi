@@ -1,0 +1,11 @@
+set term svg font ",18" background rgb "white"
+set out "circular.svg"
+
+set tics out
+set key out
+
+set title "Newtonian Circular Motion with Epsilon=0"
+set grid
+set size square
+
+plot "circular.txt" using (1/$2)*cos($1):(1/$2)*sin($1) with lines notitle

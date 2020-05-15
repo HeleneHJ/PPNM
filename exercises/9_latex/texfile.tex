@@ -1,0 +1,66 @@
+\documentclass[a4paper,twocolumn,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{cleveref}
+\title{Using \LaTeX{} and Gnuplot: The Fresnel Integrals}
+\author{Helene Hestbech Jørgensen}
+\date{\today}
+\begin{document}
+\maketitle
+
+\noindent
+The Fresnel integrals are defined as the following definite integrals:
+\begin{equation}\label{fres-sine}
+	S(x)=\int_{0}^{x} \sin\left(t^2\right) dt,
+\end{equation}
+and
+\begin{equation}\label{fres-cos}
+	C(x)=\int_{0}^{x} \cos\left(t^2\right) dt,
+\end{equation}
+
+\noindent where $S(x)$ is called the Fresnel sine integral and $C(x)$ is called the Fresnel cosine integral. These functions are shown in the figure.
+
+They are named after the French engineer and physicist, Augustin-Jean Fresnel (1788-1827), who originally used them in optics calculations.\
+
+The limit of the Fresnel functions as $x$ approaches infinity are
+
+\begin{equation}
+\int_{0}^{\infty} \cos t^2 dt = \int_{0}^{\infty} \sin t^2 dt = \frac{\sqrt{2\pi}}{4} \approx 0.6267.
+\end{equation}
+
+%The maximum of $C(x)$ is about $0.977451424$. 
+
+In some cases, the argument $t^2$ is replaced with $\pi t^2/2$ and the functions are known as normalized Fresnel integrals. These functions converge to 1/2.\\
+
+
+The Fresnel integrals can be expanded in the following power series that converge for all x:
+\begin{equation}
+	S(x)=\sum_{n=0}^{\infty} (-1)^n \frac{x^{4n+3}}{(2n+1)!(4n+3)},
+\end{equation}
+and 
+\begin{equation}
+C(x)=\sum_{n=0}^{\infty} (-1)^n \frac{x^{4n+1}}{(2n)!(4n+1)}.
+\end{equation}
+
+The Fresnel integrals can be extended to the domain of complex numbers, $S(z)$ and $C(z)$, where they become analytic functions of a complex variable $z$ and can be expressed using the error function.
+
+\begin{figure}[h]\label{fresnel}
+\input{Fresnel.tex}
+\caption{Plots of the Fresnel functions, $S(x)$ and $C(x)$.}
+\end{figure}
+
+\begin{thebibliography}{9}
+	\bibitem{Wikifresnel}
+	Wikipedia, Fresnel integral,
+	\url{https://en.wikipedia.org/wiki/Fresnel_integral},
+	accessed: 2020-05-05.
+	
+	\bibitem{WikiJean}
+	Wikipedia, Augustin-Jean Fresnel,
+	\url{https://en.wikipedia.org/wiki/Augustin-Jean_Fresnel},
+	accessed: 2020-05-05.
+\end{thebibliography}
+
+\end{document}

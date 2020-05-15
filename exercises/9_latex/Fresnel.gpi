@@ -1,0 +1,9 @@
+set term cairolatex input size 8cm,6cm
+set out "Fresnel.tex"
+set key bottom right
+set xlabel "$x$"
+set ylabel "$f(x)$"
+set grid
+plot [0:5][0:1]\
+ "out.txt" with lines linetype 2 title "$S(x)$" \
+ ,"out.c.txt" with lines linetype 4 title "$C(x)$"\

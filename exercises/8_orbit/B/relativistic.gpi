@@ -1,0 +1,11 @@
+set term svg font ",18" background rgb "white"
+set out "relativistic.svg"
+
+set tics out
+set key out
+
+set title "Relativistic Precession with Epsilon=0.01"
+set grid
+set size square
+
+plot "relativistic.txt" using (1/$2)*cos($1):(1/$2)*sin($1) with lines notitle

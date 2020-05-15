@@ -1,0 +1,13 @@
+set term svg font ",18" background rgb "white"
+set title "Error-Function vs Tabulated Values
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "Erf(x)"
+set out "Erf.svg"
+plot [][-1.5:1.5] \
+ "out.erf.txt" with lines title "error function"\
+,"out.table.txt" with points pt 7 ps 0.7  title "tabulated values"\

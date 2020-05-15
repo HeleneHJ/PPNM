@@ -1,0 +1,2 @@
+broyden: |gx|<acc
+broyden: |Dx|<EPS*|x|

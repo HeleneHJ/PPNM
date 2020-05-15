@@ -1,0 +1,13 @@
+set term svg font ",18" background rgb "white"
+set title "Gamma-Function vs Tabulated Values
+set key bottom right
+set tics out
+set grid
+set xzeroaxis
+set yzeroaxis
+set xlabel "x"
+set ylabel "Γ(x)"
+set out "Gamma.svg"
+plot [][-5:5] \
+ "out.gamma.txt" with lines title "gamma function"\
+,"out.table.txt" with points pt 7 ps 0.7 title "tabulated values"\

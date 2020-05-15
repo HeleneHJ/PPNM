@@ -1,0 +1,13 @@
+Solution of a linear system Ax=b:
+random square matrix A:
+    -0.503     -0.779     -0.066      0.543 
+     0.315     -0.134     -0.292      0.888 
+    -0.797      0.285     -0.943     -0.504 
+     -0.36       0.98      0.364       0.31 
+random right-hand-side b:
+    -0.435      0.231      0.409      0.404 
+solution x to equation Ax=b:
+     0.156      0.596     -0.462      0.143 
+check: A*x=
+    -0.435      0.231      0.409      0.404 
+A*x=b, test passed

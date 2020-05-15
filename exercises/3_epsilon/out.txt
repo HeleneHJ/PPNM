@@ -1,0 +1,32 @@
+A)
+i)
+My max int = 2147483647
+int.MaxVal = 2147483647
+ii)
+My min int = -2147483648
+int.MinVal = -2147483648
+
+B)
+double = 2.22044604925031E-16
+float = 1.192093E-07
+
+C)
+i)
+float_sum_up=15.40368
+float_sum_down=18.80792
+(Note: The maximum value is divided by 3 to minimize computation time.)
+ii) Explain the difference:
+The floating point type is not precise (it has 7 significant digits). In 'float_sum_up', we start with the largest number and add smaller and smaller values, so more of the significant digits need to be dropped for the smallest added numbers, while in 'float_sum_down' we start with the smallest number and add larger and larger numbers, allowing the least significant decimals to accumulate.
+iii) Does this sum converge as a functions of max?
+The sum does not converge.
+iv)
+sum_up_double=20.9661659719623
+sum_down_double=20.9661659733582
+Explain the result:
+The double point type is more precise (it has 15 significant digits) than the float type, and hence, these sums are not as sensitive to the 'direction' in which the numbers are added.
+
+D)
+Test:
+1.1E-08 and 1.2E-08 are equal with absolute precision or relative precision: false
+Test:
+1.1E-09 and 1.2E-09 are equal with absolute precision or relative precision: true
