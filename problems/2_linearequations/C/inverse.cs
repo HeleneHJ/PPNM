@@ -1,6 +1,6 @@
-public partial class gramschmidt{
+public partial class givens{
 public matrix inverse(){
-	int n=Q.size1,m=Q.size2;
+	int n=G.size1,m=G.size2;
 	var B=new matrix(m,n);
 	var e=new vector(n);
 	for(int i=0;i<n;i++){
@@ -10,4 +10,4 @@ public matrix inverse(){
 		}
 	return B;
 	}//solve
-}//class gramschmidt
+}//class givens

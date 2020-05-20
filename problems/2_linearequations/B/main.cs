@@ -10,8 +10,9 @@ static void Main(){
 		A[i,j]=2*(rnd.NextDouble()-0.5);
 	A.print("Matrix inverse.\nRandom square matrix A:");
 	var qra=new gramschmidt(A);
+
 	var B=qra.inverse();
-	B.print("\nA^-1:");
+	B.print("\nThe inverse of A, A^-1:");
 	var Id=new matrix(n,n);
 	for(int i=0;i<n;i++)Id[i,i]=1;
 	var C=A*B;

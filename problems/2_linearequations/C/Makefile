@@ -1,25 +1,26 @@
-all: out.txt
-	cat out.txt
+all:C.txt
 
-MATLIB = ../../../matlib
-SRC := $(MATLIB)/matrix/matrix.cs
-SRC += $(MATLIB)/matrix/vector.cs
-# SRC += $(MATLIB)/complex/complex.cs
-# SRC += $(MATLIB)/complex/cmath.cs
-# LIB = $(HOME)/Desktop/PPNM/Exercises/TrialAndError/lineareq/C
-# SRC += $(LIB)/givens.cs
-# SRC += $(LIB)/qr_abstract.cs
-# SRC += $(LIB)/QRgivens.cs
+C.txt : main.exe ; mono $< > $@
 
-matlib.dll: $(SRC) QRgivens.cs
-	mcs -target:library -out:$@ $^
+DLLS = givens.dll matlib.dll
+main.exe: main.cs $(DLLS)
+	mcs $< -reference:$(call clist,$(DLLS))
 
-out.txt: main.exe
-	mono $< 1> $@
+LIBDIR = $(HOME)/PPNM/matlib
+LIBSRC = \
+	$(LIBDIR)/matrix/vector.cs\
+	$(LIBDIR)/matrix/matrix.cs
+matlib.dll: $(LIBSRC)
+	mcs $^ -target:library -out:$@
 
-main.exe: main.cs matlib.dll
-	mcs -out:$@ -reference:matlib.dll $<
+SRC=givens.cs backsubst.cs solve.cs inverse.cs
+givens.dll:$(SRC) matlib.dll
+	mcs $(SRC) -target:library -out:$@ -reference:$(lastword $^)
 
-.PHONEY:clean
 clean:
-	rm -f out.* *.txt *.dll *.exe 
+	$(RM) *.dll *.exe out* C*
+
+comma:=,
+empty:=
+space:=$(empty) $(empty)
+clist = $(subst $(space),$(comma),$(1))
