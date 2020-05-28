@@ -13,7 +13,7 @@ out45.txt: main45.exe
 main45.exe: main45.cs matlib.dll
 	mcs $< -reference:matlib.dll
 
-LIBDIR=$(HOME)/PPNM/matlib/matrix
+LIBDIR=../../../matlib/matrix
 matlib.dll: $(LIBDIR)/vector.cs driver12.cs rkstep12.cs driver23.cs rkstep23.cs driver45.cs rkstep45.cs
 	mcs -target:library -out:$@ $^
 

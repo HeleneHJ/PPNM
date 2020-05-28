@@ -5,13 +5,6 @@ using static System.Math;
 using static System.Console;
 class main{
 static void Main(){
-
-StreamWriter outB1 = new StreamWriter("outB1.txt", append:false);
-StreamWriter outB2 = new StreamWriter("outB2.txt", append:false);
-StreamWriter outB3 = new StreamWriter("outB3.txt", append:false);
-StreamWriter outB4 = new StreamWriter("outB4.txt", append:false);
-StreamWriter outB5 = new StreamWriter("outB5.txt", append:false);
-
 	double N = 5.8e6;	//population 
 	double Tr = 10; 	//typical recovery time (days)
 	double Istart = 500; 		// initial number of infected people
@@ -22,46 +15,56 @@ StreamWriter outB5 = new StreamWriter("outB5.txt", append:false);
 	double acc=1e-3;			// precision (used in "approx")
 	double eps=1e-3;			// precision (used in "approx")
 
+
 	double Tc1 = 0.8; 	//typical time between contacts (days)
 		var xs1=new List<double>();	// x-values (to be filled)
 		var ys1=new List<vector>();	// y-values (to be filled)
 		vector y1=ode.rk23(SIR(N,Tc1,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs1,ylist:ys1); // solving the ODE
+	StreamWriter outB1 = new StreamWriter("outB1.txt", append:false);
 	for(int i=0;i<ys1.Count;i++){
 		outB1.WriteLine($"{xs1[i]} {ys1[i][0]} {ys1[i][1]} {ys1[i][2]}");		
 		}
 	outB1.Close();
 
+
 	double Tc2 = 2; 	//typical time between contacts (days)
 			var xs2=new List<double>();	// x-values (to be filled)
 			var ys2=new List<vector>();	// y-values (to be filled)
 			vector y2=ode.rk23(SIR(N,Tc2,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs2,ylist:ys2); // solving the ODE
+	StreamWriter outB2 = new StreamWriter("outB2.txt", append:false);
 	for(int i=0;i<ys2.Count;i++){
 		outB2.WriteLine($"{xs2[i]} {ys2[i][0]} {ys2[i][1]} {ys2[i][2]}");		
 		}
 	outB2.Close();
 
+
 	double Tc3 = 5; 	//typical time between contacts (days)
 			var xs3=new List<double>();	// x-values (to be filled)
 			var ys3=new List<vector>();	// y-values (to be filled)
 			vector y3=ode.rk23(SIR(N,Tc3,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs3,ylist:ys3); // solving the ODE
+	StreamWriter outB3 = new StreamWriter("outB3.txt", append:false);
 	for(int i=0;i<ys3.Count;i++){
 		outB3.WriteLine($"{xs3[i]} {ys3[i][0]} {ys3[i][1]} {ys3[i][2]}");		
 		}
 	outB3.Close();
 
+
 	double Tc4 = 8; 	//typical time between contacts (days)
 			var xs4=new List<double>();	// x-values (to be filled)
 			var ys4=new List<vector>();	// y-values (to be filled)
 			vector y4=ode.rk23(SIR(N,Tc4,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs4,ylist:ys4); // solving the ODE
+	StreamWriter outB4 = new StreamWriter("outB4.txt", append:false);
 	for(int i=0;i<ys4.Count;i++){
 		outB4.WriteLine($"{xs4[i]} {ys4[i][0]} {ys4[i][1]} {ys4[i][2]}");		
 		}
 	outB4.Close();
 
+
 	double Tc5 = Tr+3; 	//typical time between contacts (days)
 			var xs5=new List<double>();	// x-values (to be filled)
 			var ys5=new List<vector>();	// y-values (to be filled)
 			vector y5=ode.rk23(SIR(N,Tc5,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs5,ylist:ys5); // solving the ODE
+	StreamWriter outB5 = new StreamWriter("outB5.txt", append:false);
 	for(int i=0;i<ys5.Count;i++){
 		outB5.WriteLine($"{xs5[i]} {ys5[i][0]} {ys5[i][1]} {ys5[i][2]}");		
 		}

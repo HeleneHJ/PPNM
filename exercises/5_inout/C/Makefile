@@ -10,6 +10,3 @@ main.exe: main.cs
 
 clean:
 	$(RM) *.exe outputfile* inputfile.txt
-
-# in.txt: Makefile
-# 	/bin/echo -e '0.5\n2.5\n3.5' > $@

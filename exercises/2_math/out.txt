@@ -5,7 +5,7 @@ exp(i*pi)=-1+0i
 i^i=0.207879576350762
 sin(i*pi)=0+11.5i
 B)
-sinh(I)=0+0.841i
-cosh(I)=0.54+0i
-sqrt(I)=0.707+0.707i
+sinh(i)=0+0.841i
+cosh(i)=0.54+0i
+sqrt(i)=0.707+0.707i
 sqrt(-1)=0+1i

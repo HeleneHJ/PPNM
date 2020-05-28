@@ -1,7 +1,4 @@
-MATLIB = ../../../matlib
-
 all : circular.svg elliptic.svg relativistic.svg
-# 	@gio open $^
 
 # i)
 circular.svg : circular.gpi circular.txt
@@ -30,6 +27,7 @@ maincircular.exe : maincircular.cs odelib.dll
 maineccentric.exe : maineccentric.cs odelib.dll
 	@mcs $< -reference:odelib.dll
 
+MATLIB = ../../../matlib
 odelib.dll : $(MATLIB)/ode/bak.ode.cs $(MATLIB)/matrix/vector.cs
 	@mcs -target:library -out:$@ $^
 

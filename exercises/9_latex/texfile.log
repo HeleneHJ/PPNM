@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  13 MAY 2020 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  28 MAY 2020 14:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -418,10 +418,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 \gptboxwidth=\skip66
 \gptboxtext=\box28
 Package epstopdf Info: Source file: <Fresnel.eps>
-(epstopdf)                    date: 2020-05-13 21:46:09
+(epstopdf)                    date: 2020-05-28 14:42:21
 (epstopdf)                    size: 10230 bytes
 (epstopdf)             Output file: <Fresnel-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-05-13 21:46:10
+(epstopdf)                    date: 2020-05-28 14:42:22
 (epstopdf)                    size: 4519 bytes
 (epstopdf)             Command: <repstopdf --outfile=Fresnel-eps-converted-to.p
 df Fresnel.eps>
@@ -485,7 +485,7 @@ al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on texfile.pdf (1 page, 115866 bytes).
+Output written on texfile.pdf (1 page, 115697 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream

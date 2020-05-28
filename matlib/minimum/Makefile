@@ -5,11 +5,8 @@ Out.txt:main.exe
 main.exe:main.cs minimum.dll matlib.dll
 	mcs $< -r:$(call clist,$(filter %.dll,$^))
 
-LIBDIR=$(HOME)/PPNM/matlib
-LIBSRC=\
-	$(LIBDIR)/matrix/vector.cs\
-	$(LIBDIR)/matrix/matrix.cs
-matlib.dll:$(LIBSRC)
+LIBDIR=../matrix
+matlib.dll: $(LIBDIR)/vector.cs $(LIBDIR)/matrix.cs
 	mcs $^ -target:library -out:$@
 
 minimum.dll: qnewton.cs simplex.cs matlib.dll

@@ -6,7 +6,7 @@ DLLS = gramschmidt.dll matlib.dll
 main.exe: main.cs $(DLLS)
 	mcs $< -reference:$(call clist,$(DLLS))
 
-LIBDIR = $(HOME)/PPNM/matlib
+LIBDIR = ../../../matlib
 LIBSRC = \
 	$(LIBDIR)/matrix/vector.cs\
 	$(LIBDIR)/matrix/matrix.cs

@@ -79,6 +79,7 @@ public double dot(vector o){
 	for(int i=0;i<size;i++)sum+=this[i]*o[i];
 	return sum;
 	}
+
 public static double operator%(vector a,vector b){
 	return a.dot(b);
 	}

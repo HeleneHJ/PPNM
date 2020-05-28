@@ -1,7 +1,5 @@
 using System;
-
 public class test{
-
 public static void Main(string[] args){
 int n=5, max_print=8;
 if (args.Length > 0) n = int.Parse(args[0]);

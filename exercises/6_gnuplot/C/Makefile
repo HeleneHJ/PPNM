@@ -2,7 +2,7 @@ TERM = svg
 TMPPLOT = out.$(TERM)
 SIZE = 1280,960
 
-$(TMPPLOT): gamma.gpi out.gamma.txt
+Complexgamma.svg: gamma.gpi out.gamma.txt
 	gnuplot $<
 
 out.gamma.txt: main.exe
@@ -22,8 +22,8 @@ clean:
 
 gamma.gpi: Makefile
 	cat /dev/null >$@
-	echo 'set term $(TERM) size $(SIZE) ' >> $@
-	echo 'set out "$(TMPPLOT)"'  >> $@
+	echo 'set term svg size 1280,960 ' >> $@
+	echo 'set out "Complexgamma.svg"'  >> $@
 	echo 'set view ,310' >>$@
 	echo 'set title "|Γ(z)|"' >>$@
 	echo 'set hidden3d' >>$@

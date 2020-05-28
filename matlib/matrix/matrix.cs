@@ -177,7 +177,6 @@ public matrix copy(){
 	return c;
 	}
 
-
 public matrix T{
 		get{return this.transpose();}
 		set{}
@@ -212,6 +211,17 @@ public void print(string s="",string format="{0,10:g3} "){
 		System.Console.WriteLine();
 		}
 	}
+
+/* My addition which prints with numbers with different precision (yielding 0's instead of e.g. "1.234e-16") 
+	I use "float" type "f" instead of the "general" type "g" */
+	public void printfloat(string s="",string format="{0,10:f3} "){
+		System.Console.WriteLine(s);
+		for(int ir=0;ir<this.size1;ir++){
+		for(int ic=0;ic<this.size2;ic++)
+			System.Console.Write(format,this[ir,ic]);
+			System.Console.WriteLine();
+			}
+		}
 
 public static bool approx(double a, double b, double acc=1e-6, double eps=1e-6){
 	if(Abs(a-b)<acc)return true;

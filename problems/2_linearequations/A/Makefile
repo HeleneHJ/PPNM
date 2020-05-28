@@ -9,7 +9,7 @@ mainA1.exe: mainA1.cs $(DLLS)
 mainA2.exe: mainA2.cs $(DLLS)
 	mcs $< -reference:$(call clist,$(DLLS))
 
-LIBDIR = $(HOME)/PPNM/matlib
+LIBDIR = ../../../matlib
 LIBSRC = \
 	$(LIBDIR)/matrix/vector.cs\
 	$(LIBDIR)/matrix/matrix.cs

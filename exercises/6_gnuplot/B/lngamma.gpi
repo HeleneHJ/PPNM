@@ -1,14 +1,14 @@
-set term svg font ",18" background rgb "white"
-set title "Logarithm of Gamma-Function ln Γ(x)
+set term svg background rgb "white" font ",14" 
+set title "Logarithm of gamma-function lngamma(x)
 set key bottom right
 set tics out
 set grid
 set xzeroaxis
 set yzeroaxis
 set xlabel "x"
-set ylabel "ln Γ(x)"
+set ylabel "y"
 set log x
 set log y
 set out "LnGamma.svg"
 plot [][] \
- "out.lngamma.txt" with lines title "ln Γ(x)"\
+ "out.lngamma.txt" with lines title "lngamma(x)"\

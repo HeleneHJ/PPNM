@@ -46,7 +46,7 @@ public cspline(double[] xs,double[] ys){
    		c[i]=(-2*b[i]-b[i+1]+3*p[i])/h[i];
    		d[i]=(b[i]+b[i+1]-2*p[i])/h[i]/h[i];
 		}
-}//construcntor
+}//constructor
 
 public double eval(double z){ /* evaluation of the spline at point z */
 	Trace.Assert(z>=x[0] && z<=x[x.Length-1]);

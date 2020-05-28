@@ -8,21 +8,22 @@ plot.svg: out.txt Makefile
 	set xlabel "x" ;\
 	set ylabel "y" ;\
 	set size ratio -1 ;\
-	set title "3 Body figure 8 motion for m = 1, G = 1, and tb = 100" ;\
+	set title "Special-case Solution to the Three Body Problem (Figure-8)" font ",18" ;\
 	set yrange [-0.8:0.8] ;\
 	set grid ;\
-	plot "out.txt" u 2:3 with lines dt 3 notitle \
-	,"out.txt" u 4:5 with lines dt 2 notitle \
-	,"out.txt" u 6:7 with lines dt 1 notitle \
+	plot "out.txt" u 2:3 with lines dt 3 title "m_1" \
+	,"out.txt" u 4:5 with lines dt 2 title "m_2" \
+	,"out.txt" u 6:7 with lines dt 1 title "m_3" \
 	'|gnuplot
+# all three masses are plotted, but only one can be seen because they all travel on the same path 
 
 out.txt: main.exe
-	mono $< 1> out.txt
+	mono $< 1> out.txt 2> steps.txt
 
 main.exe: main.cs matlib.dll
 	mcs -reference:matlib.dll -out:$@ $<
 
-LIBDIR = $(HOME)/PPNM/matlib
+LIBDIR = ../../../matlib
 matlib.dll: $(LIBDIR)/matrix/vector.cs rkstep23.cs driver23.cs
 	mcs -target:library -out:$@ $^
 

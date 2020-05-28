@@ -20,8 +20,13 @@ public lspline(double[] xs, double[] ys){
 	x=new double[n];
 	y=new double[n];
 	p=new double[n-1];
-	for(int i=0;i<n;i++){x[i]=xs[i];y[i]=ys[i];}
-	for(int i=0;i<n-1;i++){p[i]=(y[i+1]-y[i])/(x[i+1]-x[i]);Trace.Assert((x[i+1]-x[i])>0);}
+	for(int i=0;i<n;i++){
+		x[i]=xs[i];y[i]=ys[i];
+	}
+	for(int i=0;i<n-1;i++){
+		p[i]=(y[i+1]-y[i])/(x[i+1]-x[i]);
+		Trace.Assert((x[i+1]-x[i])>0);
+	}
 	}
 
 public double eval(double z){
@@ -38,7 +43,7 @@ public double integ(double z){
 	for(int i=0;i<iz;i++){
 		dx=x[i+1]-x[i];
 		p[i]=(y[i+1]-y[i])/dx;
-		sum+=dx*(y[i]+dx*(p[i])/2);
+		sum+=dx*(y[i]+dx*(p[i])/2);   
 		}
 	dx=z-x[iz];
 	sum+=dx*(y[iz]+dx*(p[iz])/2);

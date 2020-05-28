@@ -37,12 +37,12 @@ main.exe: main.cs lsfit.cs matlib.dll
 	mcs $(filter-out %.dll,$^) -reference:$(lastword $^)
 
 SRC := \
-$(HOME)/PPNM/matlib/matrix/vector.cs\
-$(HOME)/PPNM/matlib/matrix/matrix.cs\
-$(HOME)/PPNM/problems/2_linearequations/B/gramschmidt.cs\
-$(HOME)/PPNM/problems/2_linearequations/B/backsubst.cs\
-$(HOME)/PPNM/problems/2_linearequations/B/solve.cs\
-$(HOME)/PPNM/problems/2_linearequations/B/inverse.cs\
+../../matlib/matrix/vector.cs\
+../../matlib/matrix/matrix.cs\
+../../matlib/gramschmidt/gramschmidt.cs\
+../../matlib/gramschmidt/backsubst.cs\
+../../matlib/gramschmidt/solve.cs\
+../../matlib/gramschmidt/inverse.cs\
 
 matlib.dll: $(SRC)
 	mcs $^ -target:library -out:$@

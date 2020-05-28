@@ -1,7 +1,6 @@
 using System;
-
-public class jacobi{
-
+using static System.Math;
+public partial class jacobi{
 public static int cyclic(matrix A, vector e, matrix V=null){
 /* Jacobi diagonalization. Upper triangle of A is destroyed.
    e and V accumulate eigenvalues and eigenvectors */

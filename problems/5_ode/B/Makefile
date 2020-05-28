@@ -14,7 +14,7 @@ outB5.txt: main.exe
 main.exe: main.cs matlib.dll
 	mcs $< -reference:matlib.dll
 
-LIBDIR = $(HOME)/PPNM/matlib
+LIBDIR = ../../../matlib
 SRC := $(LIBDIR)/matrix/vector.cs
 matlib.dll: $(SRC) rkstep23.cs driver23.cs
 	mcs -target:library -out:$@ $^

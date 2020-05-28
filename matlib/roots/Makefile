@@ -1,4 +1,4 @@
-LIBDIR=$(HOME)/PPNM/matlib
+LIBDIR=../
 LIBSRC=\
 	$(LIBDIR)/matrix/vector.cs\
 	$(LIBDIR)/matrix/matrix.cs\

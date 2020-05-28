@@ -42,9 +42,8 @@ static void Main(){
 	Error.WriteLine("The value obtained from the fit agrees with the modern value within the uncertainties of the fit");
 	Error.WriteLine("(Source: https://en.wikipedia.org/wiki/Isotopes_of_radium)\n");
 
-
-	matrix sigma=fit.sigma;
 /* B) */
+	matrix sigma=fit.sigma;
 	Error.WriteLine("B)");
 	Error.WriteLine($"The covariance matrix, Σ: \n {sigma[0,0]:f6}	{sigma[0,1]:f6} \n {sigma[1,0]:f6}	{sigma[1,1]:f6}");
 	Error.WriteLine("\nThe fitting parameters with uncertainties are:");

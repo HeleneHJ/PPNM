@@ -1,5 +1,5 @@
 set term svg size 1280,960 
-set out "out.svg"
+set out "Complexgamma.svg"
 set view ,310
 set title "|Γ(z)|"
 set hidden3d

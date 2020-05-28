@@ -37,7 +37,7 @@ public qspline(double[] xs, double[] ys){ /* calculate p and c */
 public double eval(double z){/* evaluation of the spline at point z */
 	Trace.Assert(z>=x[0] && z<=x[x.Length-1]);
 	int i=binsearch(x,z);
-	double dx=z-x[i];/* calculate the inerpolating spline : */
+	double dx=z-x[i];/* calculate the interpolating spline : */
 	return y[i]+p[i]*dx+c[i]*dx*(z-x[i+1]);
 	}
 

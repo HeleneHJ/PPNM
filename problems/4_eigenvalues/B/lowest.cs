@@ -1,8 +1,6 @@
 using System;
-
 public partial class jacobi{
-
-public static int values(matrix A, vector e, int nvalues=1, matrix V=null){
+public static int lowest(matrix A, vector e, int nvalues=1, matrix V=null){
 /* Jacobi diagonalization. Upper triangle of A is destroyed.
    e and V accumulate eigenvalues and eigenvectors */
 bool changed; int rotations=0, n=A.size1;

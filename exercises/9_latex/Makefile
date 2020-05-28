@@ -23,7 +23,7 @@ cfresnel.exe: cfresnel.cs matlib.dll
 	mcs -out:$@ -reference:matlib.dll cfresnel.cs
 
 
-LIBDIR = $(HOME)/PPNM/matlib/integration
+LIBDIR = ../../matlib/integration
 matlib.dll: $(LIBDIR)/quado8.cs
 	mcs -target:library -out:$@ $^
 

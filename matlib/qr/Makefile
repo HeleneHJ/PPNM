@@ -3,6 +3,7 @@ Out.txt:main.exe
 
 main.exe: main.cs matlib.dll
 	mcs $< -reference:$(lastword $^)
+
 matlib.dll: ../matrix/matrix.cs ../matrix/vector.cs qr.cs
 	mcs $^ -target:library -out:$@
 
