@@ -1,0 +1,13 @@
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 9.10523066790475
+driver: bad step at 9.18953447320313
+driver: bad step at 9.34155367357317
+driver: bad step at 26.7623487699254
+driver: bad step at 123.35885738052
+driver: bad step at 125.702522289412
+driver: bad step at 127.777146625833
+It is clear that the larger T_c is, the flatter the curve of 'I' becomes, i.e., the longer between contacts that spread the disease, the fewer people will be infected at one time.
+However, this also means that the disease will remain in the population longer.
+This model is a simplification that does not take into account the measures implemented to stop the disease from spreading, such as social distancing, and a general 'shut down' of society.
+If T_c is larger than T_r, i.e., that the recovery time is smaller than the time between contacts, then there is no epidemic, which is the idea behind social distancing.

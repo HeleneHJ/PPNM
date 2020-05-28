@@ -5,25 +5,22 @@ using System.Collections;
 using System.Collections.Generic;
 
 public partial class ode{
-
 public static vector rk23
 (
 	Func<double,vector,vector> F, /* equation */
 	double a, vector ya, /* initial condition: {a,y(a)} */
 	double b, 
+	double h=0.1,
 	double acc=1e-3,
 	double eps=1e-3,
-	double h=0.1, 
+	// double h=0.1, 
 	List<double> xlist=null,
 	List<vector> ylist=null,
 	int limit=999
 ){
-return driver( F, a,ya,b,
-	acc, eps, h,
-	xlist, ylist,
-	limit, rkstep23 );}
+return driver23( F, a, ya, b, acc, eps, h, xlist, ylist, limit, rkstep23);}
 
-public static vector driver(
+public static vector driver23(
 	Func<double,vector,vector> F, /* equation */
 	double a, vector ya, double b, 
 	double acc, double eps, double h, 
@@ -67,5 +64,5 @@ do{
 		}
 	else { h=hnew; Error.WriteLine($"driver: bad step at {a}"); }
 	}while(true);
-}// driver
+}// driver23
 }// class
