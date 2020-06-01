@@ -1,17 +1,17 @@
 using System;
 public class hydrogen{
+public static double F_eps(double eps,double r){
+	double r_min=1e-3;		   // limit for r -> 0
+	if(r<r_min) return r-r*r;  // f(r->0) = r-r^2
 
-public static double Fe(double e, double r){
-	double rmin = 1e-3;
-	if(r<rmin) return r-r*r;
-
-	Func<double,vector,vector> swave = (x,y)=>
-	{ /* -(1/2)f'' - (1/r)f = e f */
-		return new vector(y[1], 2*(-1/x-e)*y[0]);
+	/*	 The Schrödinger Equation: 	-1/2f''-(1/r)f = εf 
+							  <=>  	f'' = -2( εf + (1/r)f )		*/
+	Func<double,vector,vector> s_wave = delegate(double x,vector f){
+		return new vector(f[1],-2*(eps*f[0]+f[0]/x));	// f = f[0], f'' = f[1]
 	};
-
-	vector yrmin = new vector(rmin-rmin*rmin, 1-2*rmin);
-	vector yrmax = ode.rk23(swave,rmin,yrmin,r,h:0.001);
-	return yrmax[0];
-}
-}//class
+	
+	vector f_rmin=new vector(r_min-r_min*r_min, 1-2*r_min);	// boundary condition: r_min = r_min-r_min^2, r'_min = 1-2r_min
+	vector f_rmax=ode.rk23(s_wave,r_min,f_rmin,r,h:0.001);	// solving the Schrödinger equation using the ODE solver
+	return f_rmax[0];	// return the lowest root eps_0
+}//F_eps
+}//class hydrogen

@@ -16,7 +16,7 @@ static void Main(){
 	double eps=1e-3;			// precision (used in "approx")
 
 
-	double Tc1 = 0.8; 	//typical time between contacts (days)
+	double Tc1 = 0.8; 	//typical time between contacts (days)  (True value ~4.7 days)
 		var xs1=new List<double>();	// x-values (to be filled)
 		var ys1=new List<vector>();	// y-values (to be filled)
 		vector y1=ode.rk23(SIR(N,Tc1,Tr),a,ya,b,acc:acc,eps:eps,h:h,xlist:xs1,ylist:ys1); // solving the ODE

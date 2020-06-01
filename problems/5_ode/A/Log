@@ -1,8 +1,31 @@
-ode.driver: nsteps>9999
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
+driver: bad step at 0
 acc=0.001 eps=0.001
-npoints=10001
+npoints=46401
 a=0 y0(0)=0 y1(0)=1
 b=6.28318530717959
-y0 (b)=0.626460881569866  y1(b)=0.779452861860624
+y0 (b)=-1.84357737409435E-14  y1(b)=0.999999999999994
 sin(b)=0.000000000000000 cos(b)=1.000000000000000
-test failed
+test passed

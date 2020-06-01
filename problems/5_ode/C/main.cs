@@ -22,11 +22,11 @@ static void Main() {
 	double tb = 10;	// "end value"
 	double acc = 1e-5;	// precision
 	double eps = 1e-5;	// precision
-	double h = 1e-3;	// step size
+	double h = 1e-2;	// step size
 	var ts = new List<double>();
 	var ys = new List<vector>();
 
-	ode.rk23(threebody(m,G),t0,y0,tb,h,acc,eps,ts,ys);
+	ode.rk45(threebody(m,G),t0,y0,tb,h,acc,eps,ts,ys);
 
 	StreamWriter output = new System.IO.StreamWriter("out.txt");
 	for(int i=0;i<ys.Count;i++){

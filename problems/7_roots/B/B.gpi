@@ -1,0 +1,13 @@
+set term svg font ",14"
+set decimalsign locale
+set out "B.svg"
+set encoding utf8
+set key right
+set xzeroaxis
+set yzeroaxis
+
+set title "Hydrogen s-wave F_ε(r_{max})=0" font ",18"
+set xlabel "r [a_{Bohr}]"
+set ylabel "F_ε(r)"
+plot "data.txt" using ($1):($2) with lines lw 2 lc rgb "black" title "r_{max}=8"\
+ ,"data.txt" using ($1):($3) with lines dashtype 7 lw 2 lc rgb "red" title "exact"\

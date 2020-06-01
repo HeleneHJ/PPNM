@@ -1,17 +1,7 @@
-broyden:
- start point:         2          2 
-ncalls=15
-root=      1.03       1.03 
-f(root)=  -6.4e-05   3.31e-06 
-eps            = 0.0001
-f(root).norm() = 6.4087781805145E-05
-test passed
-
-newton:
- start point:         2          2 
-ncalls=28
-root=      1.03       1.03 
-f(root)=  -3.7e-05   1.91e-06 
-eps            = 0.0001
-f(root).norm() = 3.70632155471186E-05
+start values=	0.5	1.7
+ncalls=785
+root=         1          1 
+f(root)=  6.75e-13  -1.11e-13 
+eps            = 1E-07
+f(root).norm() = 6.84303899555934E-13
 test passed

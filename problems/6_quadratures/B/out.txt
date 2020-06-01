@@ -1,0 +1,30 @@
+Integral: ∫_0^1 1/Sqrt(x) dx, acc=0.001 eps=0.001
+  Solution using Clenshaw-Curtis transformation:
+	result=1.999992, tolerance=3.000e-003, calls=16
+	exact =2.000000, error    =7.990e-006, test passed
+  Solution without Clenshaw-Curtis transformation:
+	result=1.999516, tolerance=3.000e-003, calls=400
+	exact =2.000000, error    =4.839e-004, test passed
+
+Integral: ∫_0^1 Log(x)/Sqrt(x) dx, acc=0.001 eps=0.001
+  Solution using Clenshaw-Curtis transformation:
+	result=-3.999755, tolerance=5.000e-003, calls=80
+	exact =-4.000000, error    =2.451e-004, test passed
+  Solution without Clenshaw-Curtis transformation:
+	result=-3.999790, tolerance=5.000e-003, calls=792
+	exact =-4.000000, error    =2.099e-004, test passed
+
+The Clenshaw-Curtis transformation clearly reduces the number of recursive calls without significantly increasing the error.
+
+Integral: ∫_0^1 4*Sqrt(1-x*x) dx, acc=0.001 eps=0.001
+  Solution using Clenshaw-Curtis transformation:
+	result=3.1415723324360800, tolerance=4.142e-003, calls=36
+	exact =3.1415926535897900, error    =2.032e-005, test passed
+  Solution without Clenshaw-Curtis transformation:
+	result=3.1418345780272700, tolerance=4.142e-003, calls=28
+	exact =3.1415926535897900, error    =2.419e-004, test passed
+  Solution using o8av:
+	result=3.1413229434193600, tolerance=4.141e-003, calls=8
+	exact =3.1415926535897900, error    =2.697e-004, test passed
+
+The 'o8av' integration routine from the matlib is much faster, i.e., it requires fewer calls, however it is not as accurate as the other integration routines.

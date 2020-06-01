@@ -1,0 +1,25 @@
+Integral: ∫_-∞^+∞ Exp(-(x*x)) dx, acc=0.001 eps=0.001
+  Solution using integrator with infinite limits:
+	result=1.7724372896559200, tolerance=2.772e-003, calls=64
+	exact =1.7724538509055200, error    =1.656e-005, test passed
+  Solution using o8av:
+	result=1.7726940024867000, tolerance=2.773e-003, calls=48
+	exact =1.7724538509055200, error    =2.402e-004, test passed
+
+Integral: ∫_-∞^0 x*Exp(x) dx, acc=0.001 eps=0.001
+  Solution using integrator with infinite limits:
+	result=-0.9999895154248310, tolerance=2.000e-003, calls=44
+	exact =-1.0000000000000000, error    =1.048e-005, test passed
+  Solution using o8av:
+	result=-1.0011264627284500, tolerance=2.001e-003, calls=24
+	exact =-1.0000000000000000, error    =1.126e-003, test passed
+
+Integral: ∫_0^+∞ 1/(1+x^2) dx, acc=0.001 eps=0.001
+  Solution using integrator with infinite limits:
+	result=1.5708023233662900, tolerance=2.571e-003, calls=16
+	exact =1.5707963267949000, error    =5.997e-006, test passed
+  Solution using o8av:
+	result=1.5704834663931400, tolerance=2.570e-003, calls=16
+	exact =1.5707963267949000, error    =3.129e-004, test passed
+
+The 'o8av' integration routine is also faster at determining integrals with infinite limits, however it is not as accurate as the other integration routine.

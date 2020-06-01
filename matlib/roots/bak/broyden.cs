@@ -1,9 +1,7 @@
 using System;
 using static System.Console;
 public partial class roots{
-
-public static vector broyden
-(Func<vector,vector> f, vector x, double eps=1e-3){
+public static vector broyden(Func<vector,vector> f, vector x, double eps=1e-3){
 	vector fx=f(x),z,fz;
 	matrix J=jacobian(f,x,fx);
 	var qrJ=new qrdecomposition(J);

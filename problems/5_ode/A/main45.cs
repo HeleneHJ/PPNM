@@ -20,7 +20,7 @@ static void Main(){
 	double a=0;					// boundary condition
 	vector ya=new vector(0,1);	// boundary condition, {a,y(a)}
 	double b=2*PI;				// "end" value
-	double h=0.00001;				// step size
+	double h=1;				// step size
 	double acc=1e-3;			// precision (used in "approx")
 	double eps=1e-3;			// precision (used in "approx")
 	var xs=new List<double>();	// x-values (to be filled)
@@ -42,7 +42,7 @@ if(approx(y[0],Sin(b),acc,eps) && approx(y[1],Cos(b),acc,eps))
 else
 	Error.WriteLine("test failed");
 
-	for(int i=0;i<xs.Count;i++)
+	for(int i=0;i<xs.Count;i+=900)
 	// for(int i=0;i<xs.Count;i+=10)
 		WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
 }

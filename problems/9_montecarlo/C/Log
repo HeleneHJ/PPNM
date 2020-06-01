@@ -1,0 +1,19 @@
+===== miser: x%x<R*R =====
+npoints=10000
+integ=0.60389 sigma=0.00052
+exact=0.60344 error=0.00044 = 0.854 sigma
+
+===== plain: x%x<R*R =====
+npoints=10000
+integ=0.61060 sigma=0.00238
+exact=0.60344 error=0.00716 = 3.010 sigma
+
+===== miser: difficult integral =====
+npoints=500000
+integ=1.39303 sigma=0.00303
+exact=1.39320 error=0.00017 = 0.058 sigma
+
+===== plain: difficult integral =====
+npoints=500000
+integ=1.40183 sigma=0.00529
+exact=1.39320 error=0.00862 = 1.630 sigma

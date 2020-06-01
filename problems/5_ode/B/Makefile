@@ -16,7 +16,7 @@ main.exe: main.cs matlib.dll
 
 LIBDIR = ../../../matlib
 SRC := $(LIBDIR)/matrix/vector.cs
-matlib.dll: $(SRC) rkstep23.cs driver23.cs
+matlib.dll: $(SRC) rkstep23.cs driver23.cs rkstep45.cs driver45.cs
 	mcs -target:library -out:$@ $^
 
 .PHONY:clean
