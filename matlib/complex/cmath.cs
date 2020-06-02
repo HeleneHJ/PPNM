@@ -63,4 +63,48 @@ public static complex pow (this complex a, double x){
 public static complex pow (this complex a, complex b){
 	return exp(b*log(a)); }
 
+/*_________________________________________________________*/
+
+
+public static bool approx(complex a, complex b, double abserr=1e-9, double relerr=1e-9){
+	double d=abs(a-b),s=abs(a)+abs(b);
+	if (equal(a,b)==true) return true;
+	if( d<=abserr ) return true;
+	else if ( d/s <= relerr/2 ) return true;
+	else return false;
+	}
+
+public static bool largest(complex a, complex b){
+	double c=abs(a),d=abs(b);
+	if( c>d ) return true;	// if b is smaller than a
+	else return false;
+	}
+
+public static bool largerequal(complex a, complex b){
+	double c=abs(a),d=abs(b);
+	if( c>=d ) return true;	// if b is larger than a
+	else return false;
+	}
+
+public static bool equal(complex a, complex b){
+	double c=abs(a),d=abs(b);
+	if( d==c ) return true;	// if b is equal to a
+	else return false;
+	}
+
+public static complex min(complex a, complex b){
+	double c=abs(a);
+	double d=abs(b);
+	if(c<=d){ return a; }
+	else { return b; }
+}
+
+public static complex max(complex a, complex b){
+	double c=abs(a);
+	double d=abs(b);
+	if(c>=d){ return a; }
+	else { return b; }
+}
+
+
 }// cmath

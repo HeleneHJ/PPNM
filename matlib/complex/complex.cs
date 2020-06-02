@@ -110,21 +110,18 @@ return String.Format(
         }
 
 // bool
-public static bool approx
-(double a, double b, double abserr=1e-9, double relerr=1e-9){
+public static bool approx(double a, double b, double abserr=1e-9, double relerr=1e-9){
 	double d=Math.Abs(a-b),s=Math.Abs(a)+Math.Abs(b);
 	if( d<abserr ) return true;
 	else if ( d/s < relerr/2 ) return true;
 	else return false;
 	}
 
-public static bool approx
-(double a, complex b, double abserr=1e-9, double relerr=1e-9){
+public static bool approx(double a, complex b, double abserr=1e-9, double relerr=1e-9){
 	return approx(a,b.Re) && approx(0,b.Im);
 	}
 
-public bool approx
-(complex b, double abserr=1e-9, double relerr=1e-9){
+public bool approx(complex b, double abserr=1e-9, double relerr=1e-9){
 	return approx(this.Re,b.Re) && approx(this.Im,b.Im);
 	}
 public bool Equals(complex b){

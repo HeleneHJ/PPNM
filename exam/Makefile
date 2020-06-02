@@ -1,24 +1,31 @@
-all: plot.svg
-
-plot.svg: plot.gpi out.txt
-	gnuplot $<
+DATA = out.txt
+PLOT = plot.svg
+all: out.txt plot.svg
 
 out.txt: main.exe
-	mono $< 1> $@ 
-
-main.exe: main.cs matlib.dll
-	mcs main.cs hydrogen.cs
-
-LIBDIR=../../../matlib
-LIBSRC=\
-	$(LIBDIR)/matrix/vector.cs\
-	$(LIBDIR)/matrix/matrix.cs\
-	$(LIBDIR)/ode/driver.cs\
-	$(LIBDIR)/ode/rkstep23.cs\
-	$(LIBDIR)/qr/qr.cs\
+	mono $< 1> $@ 2> out2.txt
 	
-matlib.dll: $(LIBSRC)
-	mcs $^ -target:library -out:$@
+main.exe: main.cs matlib.dll
+	mcs $< -reference:matlib.dll
+
+LIBDIR = ../matlib
+matlib.dll: driver.cs rkstep23.cs cvector.cs $(LIBDIR)/matrix/vector.cs $(LIBDIR)/complex/cmath.cs $(LIBDIR)/complex/complex.cs
+	mcs -target:library -out:$@ $^
 
 clean:
-	rm -f *.exe out* *.dll
+	rm -f *.dll *.exe out* 
+
+$(PLOT): $(DATA) Makefile
+	echo '\
+	set term svg background rgb "white";\
+	set out "$(PLOT)";\
+	set key out;\
+	set tics out;\
+	set xlabel "x";\
+	plot \
+	 "$(DATA)" using 1:2 with points pt 7 ps 0.5 title "y_0" \
+	,"$(DATA)" using 1:3 with points pt 5 ps 0.5 title "y_1" \
+ 	,sin(x) title "sin"\
+	,cos(x) title "cos"\
+	'|gnuplot
+	
