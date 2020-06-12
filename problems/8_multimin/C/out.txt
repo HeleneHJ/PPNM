@@ -1,0 +1,13 @@
+simplex.downhill: Rosenbrock's valley function
+start point:         3          3 
+simplex size= 0.0006468787
+ncalls = 140
+minimum:             1          1 
+f(x_min)          = 4.521914E-08
+
+simplex.downhill: Himmelblau's function
+start point:         1          3 
+simplex size= 0.0007512803
+ncalls = 72
+minimum:             3          2 
+f(x_min)          = 0

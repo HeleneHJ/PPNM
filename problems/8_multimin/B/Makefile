@@ -1,21 +1,21 @@
-Plot.svg: plot.data Makefile
+Higgs.svg: plot.txt Makefile
 	gnuplot -e "\
-	set term svg background rgb 'white';\
-	set title 'Higgs production signal';\
+	set term svg background rgb 'white' font ',14';\
+	set title 'Higgs Production Signal' font ',18';\
 	set xlabel 'Energy [GeV]';\
 	set ylabel 'Signal [arb.u.]';\
-	plot '$<' using 1:2:3 with errorbars title 'exp'\
-	, '$<' usin 1:4 with lines smooth acsplines title 'fit' ;\
+	plot 'higgs.txt' using 1:2:3 with errorbars title 'exp'\
+	, '$<' using 1:2 with lines title 'fit' ;\
 	" > $@
 
-plot.data:main.exe
-	mono $< <higgs.data 1>Log 2>$@
+plot.txt: main.exe
+	mono $< <higgs.txt 1>results.txt 2>$@
 
-main.exe:main.cs qnewton.dll matlib.dll
+main.exe: main.cs qnewton.dll matlib.dll
 	src="$(filter %.cs,$^)"; libs="$(call clist,$(filter %.dll,$^))";\
 	mcs $$src -t:exe -r:$$libs -out:$@
 
-LIBDIR=$(HOME)/PPNM/matlib
+LIBDIR=../../../matlib
 LIBSRC=\
 	$(LIBDIR)/matrix/vector.cs\
 	$(LIBDIR)/matrix/matrix.cs

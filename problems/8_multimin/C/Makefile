@@ -1,23 +1,20 @@
 all: out.txt
 out.txt: main.exe
-	mono $< >$@ 2>Log
+	mono $< >$@ 2>log
 
-main.exe: main.cs qnewton.dll matlib.dll
+main.exe: main.cs minimum.dll matlib.dll
 	mcs $< -r:$(call clist,$(filter %.dll,$^))
 
-LIBDIR=../../../matlib
-LIBSRC=\
-	$(LIBDIR)/matrix/vector.cs\
-	$(LIBDIR)/matrix/matrix.cs
-matlib.dll:$(LIBSRC)
+LIBDIR=../../../matlib/matrix
+matlib.dll: $(LIBDIR)/vector.cs $(LIBDIR)/matrix.cs
 	mcs $^ -target:library -out:$@
 
-qnewton.dll: qnewton.cs matlib.dll
+minimum.dll: simplex.cs matlib.dll
 	src="$(filter %.cs,$^)"; libs="$(call clist,$(filter %.dll,$^))";\
 	mcs $$src -t:library -r:$$libs -out:$@
 
 clean:
-	$(RM) *.exe *.dll [o]ut* [Ll]og*
+	$(RM) *.exe *.dll [o]ut* [l]og*
 
 comma:=,
 empty:=
