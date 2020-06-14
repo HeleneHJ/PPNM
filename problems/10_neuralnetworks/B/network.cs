@@ -5,7 +5,7 @@ public class network{
 
 public vector p;					//p: set of parameters
 public Func<double,double> f;		//f: activation function
-public readonly int n;				//n: number of sets
+public readonly int n;				//n: number of hidden neurons
 
 public network(int n, Func<double,double> f){
 	this.n=n;
@@ -42,5 +42,19 @@ Error.Write($"mismatch={sum/xs.Length}\n");
 Error.Write($"ncalls={ncalls}\n");
 Error.Write($"nsteps={nsteps}\n");
 	}
+
+public double integ(Func<double,double> yprime,double xs){
+	return yprime(xs);
+}
+// public double deriv(Func<double,double> yprime,double xs){
+// 	return yprime(xs);
+// }
+public double deriv(double x){  // Returns the derivative at x.
+        double res=0;
+        for(int i=0;i<n;i++){
+            res+=p[3*i+2]*f((x-p[3*i])/p[3*i+1])*(-2.0/(Pow(p[3*i+1], 2))*(x-p[3*i]));
+        }
+        return res;
+    } // deriv
 
 }//network

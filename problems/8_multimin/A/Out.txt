@@ -11,7 +11,7 @@ SR1: Himmelblau's function
 start point:         0          1 
 nsteps=11
 minimum:             3          2 
-f(x_min)          = 6.65910726483257E-12
+f(x_min)          = 6.659107E-12
 |gradient| goal   = 0.0001
 |gradient| actual = 4.919802E-06
 test passed

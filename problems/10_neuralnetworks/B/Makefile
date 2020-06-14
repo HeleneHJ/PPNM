@@ -10,6 +10,8 @@ Plot.svg:out.txt Makefile
 	plot\
 	 "$<" index 0 with points pointtype 6 title "Data"\
 	,"$<" index 1 with lines title "Fit"\
+	,"$<" index 2 u 1:3 with points pointtype 1 title "Integ"\
+	,"$<" index 2 u 1:4 with points pointtype 1 title "Deriv"\
 	'|gnuplot
 
 out.txt:main.exe
@@ -24,7 +26,8 @@ LIBSRC=\
 	$(LIBDIR)/matrix/vector.cs\
 	$(LIBDIR)/matrix/matrix.cs\
 	$(LIBDIR)/minimum/simplex.cs\
-	$(LIBDIR)/minimum/qnewton.cs
+	$(LIBDIR)/minimum/qnewton.cs\
+	$(LIBDIR)/integration/quado8.cs
 
 matlib.dll: $(LIBSRC)
 	mcs -target:library -out:$@ $^
