@@ -1,6 +1,6 @@
 all: out.txt Plot.svg Plotdiff.svg Plotint.svg
 
-Plot.svg:out.txt Makefile
+Plot.svg: out.txt Makefile
 	echo '\
 	set term svg size 640,480 background rgb "white" font ",14";\
 	set out "$@";\
@@ -9,12 +9,12 @@ Plot.svg:out.txt Makefile
 	set title "Neural Network Curve Fitting" font ",18";\
 	set xlabel "x";\
 	set ylabel "y";\
-	plot\
+	plot[][-1.2:1.2]\
 	 "$<" index 0 u 1:2 with points pointtype 6 title "Data"\
 	,"$<" index 1 u 1:2 with lines title "Fit"\
 	'|gnuplot
 
-Plotdiff.svg:out.txt Makefile
+Plotdiff.svg: out.txt Makefile
 	echo '\
 	set term svg size 640,480 background rgb "white" font ",14";\
 	set out "$@";\
@@ -23,12 +23,12 @@ Plotdiff.svg:out.txt Makefile
 	set title "Neural Network Differential Fitting" font ",18";\
 	set xlabel "x";\
 	set ylabel "y";\
-	plot\
+	plot[][-1.2:1.2]\
 	 "$<" index 0 u 1:3 with points pointtype 6 title "Data"\
 	,"$<" index 1 u 1:3 with lines title "Fit"\
 	'|gnuplot
 
-Plotint.svg:out.txt Makefile
+Plotint.svg: out.txt Makefile
 	echo '\
 	set term svg size 640,480 background rgb "white" font ",14";\
 	set out "$@";\
@@ -37,7 +37,7 @@ Plotint.svg:out.txt Makefile
 	set title "Neural Network Anti-differential Fitting" font ",18";\
 	set xlabel "x";\
 	set ylabel "y";\
-	plot\
+	plot[][-1.2:1.2]\
 	 "$<" index 0 u 1:4 with points pointtype 6 title "Data"\
 	,"$<" index 1 u 1:4 with lines title "Fit"\
 	'|gnuplot

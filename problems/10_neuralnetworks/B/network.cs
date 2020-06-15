@@ -6,12 +6,12 @@ public class network{
 public vector p;					//p: set of parameters
 public readonly int n;				//n: number of sets
 public Func<double,double> f;		//f: activation function
-public Func<double,double> df;		//f: activation function
-public Func<double,double> F;		//f: activation function
+public Func<double,double> df;		//df: differentiated activation function
+public Func<double,double> F;		//F: integrated activation function
 
 public network(int n, Func<double,double> f, Func<double,double> df, Func<double,double> F){
 	this.n=n;
-	this.p=new vector(3*n);		//p containts 3 parameters: ai, bi, and wi for i=1,..,n
+	this.p=new vector(3*n);		//p containts sets of 3 parameters: ai, bi, and wi for i=1,..,n
 	this.f=f;
 	this.df=df;
 	this.F=F;
@@ -34,7 +34,7 @@ public double feeddf(double x){
 		double a=p[3*i+0];		//a: first parameter in p
 		double b=p[3*i+1];		//b: second parameter in p
 		double w=p[3*i+2];		//w: third parameter in p
-		sum+=w*df((x-a)/b);		//output signal y=f((x-ai)/bi)*wi
+		sum+=w/b*df((x-a)/b);		//output signal y=f((x-ai)/bi)*wi
 		}
 	return sum;
 	}
@@ -45,7 +45,7 @@ public double feedF(double x){
 		double a=p[3*i+0];		//a: first parameter in p
 		double b=p[3*i+1];		//b: second parameter in p
 		double w=p[3*i+2];		//w: third parameter in p
-		sum+=w*F((x-a)/b);		//output signal y=f((x-ai)/bi)*wi
+		sum+=b*w*F((x-a)/b);		//output signal y=f((x-ai)/bi)*wi
 		}
 	return sum;
 	}

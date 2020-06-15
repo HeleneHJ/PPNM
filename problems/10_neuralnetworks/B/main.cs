@@ -11,8 +11,8 @@ static Func<double,double> G=(x)=>-Cos(x); 		//anti-derivative of g
 static void Main(){
 	int n=5;					//number of sets of parameters
 	var ann=new network(n,f,df,F);	//creating a new "network" using n and our activation function f
-	double a=-PI,b=PI;			//a: "start" value, b: "end" value
-	int nx=50;					//length of xs and ys
+	double a=-PI,b=2*PI;			//a: "start" value, b: "end" value
+	int nx=30;					//length of xs and ys
 	var xs=new double[nx];
 	var ys=new double[nx];
 	for(int i=0;i<nx;i++){
@@ -28,9 +28,10 @@ static void Main(){
 	}
 	ann.p.fprint(Console.Error,"p=");
 	ann.train(xs,ys);					//calling "train" which minimizes the deviation given our x's and y's
+	double offset = G(xs[0])-ann.feedF(xs[0]);
 	ann.p.fprint(Console.Error,"p=");
 	for(double z=a;z<=b;z+=1.0/64)
-		Write($"{z} {ann.feed(z)} {ann.feeddf(z)} {ann.feedF(z)}\n");	//calling "feed" which returns the output signal
+		Write($"{z} {ann.feed(z)} {ann.feeddf(z)} {ann.feedF(z)+offset}\n");	//calling "feed" which returns the output signal
 
 }//Main
 }//main
