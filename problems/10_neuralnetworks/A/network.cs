@@ -10,7 +10,7 @@ public readonly int n;				//n: number of sets
 public network(int n, Func<double,double> f){
 	this.n=n;
 	this.f=f;
-	this.p=new vector(3*n);			//p containts 3 parameters: ai, bi, and wi
+	this.p=new vector(3*n);		//p containts 3 parameters: ai, bi, and wi for i=1,..,n
 	}
 
 public double feed(double x){
@@ -32,15 +32,15 @@ public void train(double[] xs,double[] ys){
 		double sum=0;
 		for(int k=0;k<xs.Length;k++)
 			sum+=Pow(feed(xs[k])-ys[k],2);	//deviation: δ(p)=∑(F_p(x_k)-y_k)^2, with k=1,..,N
-Error.Write($"mismatch={sum/xs.Length}\n");
+	Error.Write($"mismatch={sum/xs.Length}\n");
 		return sum/xs.Length;				
 		};//mismatch
 	vector v=p;
-	//int nsteps=qnewton.sr1(mismatch,ref v,1e-2);					//minimization of deviation (using the qnewton SR1 minimization routine)
+	//int nsteps=qnewton.sr1(mismatch,ref v,1e-2);					 //minimization of deviation (using the qnewton SR1 minimization routine)
 	double nsteps=simplex.downhill(mismatch,ref v,step:0.2,dx:1e-2); //minimization of deviation (using the downhill simplex minimization routine)
 	p=v;
-Error.Write($"ncalls={ncalls}\n");
-Error.Write($"nsteps={nsteps}\n");
+	Error.Write($"ncalls={ncalls}\n");
+	Error.Write($"nsteps={nsteps}\n");
 	}
 
 }//network

@@ -40,20 +40,20 @@ while(size(p)>dx && ++nsteps<999){
 		vector pex=3*pce-2*p[hi];
 		double fex=F(pex);
 		if(fex<fre){ /* very good */
-			Error.Write("expansion\n");
+			// Error.Write("expansion\n");
 			p[hi]=pex;
 			f[hi]=fex;
 			continue;
 		}
 		else{ /* just goog */
-			Error.Write("reflection\n");
+			// Error.Write("reflection\n");
 			p[hi]=pre;
 			f[hi]=fre;
 			continue;
 		}
 	}
 	else if(fre<fhi){
-		Error.Write("reflection\n");
+		// Error.Write("reflection\n");
 		p[hi]=pre;
 		f[hi]=fre;
 		continue;
@@ -62,12 +62,12 @@ while(size(p)>dx && ++nsteps<999){
 		vector pco=(pce+p[hi])/2;
 		double fco=F(pco);
 		if(fco<fhi){
-			Error.Write("contraction\n");
+			// Error.Write("contraction\n");
 			p[hi]=pco;
 			f[hi]=fco;
 			continue;
 		}
-		Error.Write("reduction\n");
+		// Error.Write("reduction\n");
 		for(int i=0;i<p.Length;i++)
 		if(i!=lo){
 			p[i]=(p[i]+p[lo])/2;

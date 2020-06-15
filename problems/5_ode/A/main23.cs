@@ -27,13 +27,14 @@ static void Main(){
 	var ys=new List<vector>();	// y-values (to be filled)
 
 vector y=ode.rk23(F,a,ya,b,acc:acc,eps:eps,h:h,xlist:xs,ylist:ys);	// solving the ODE
+// y=[sin(x), cos[x]]
 
 /* Printing output to "Log"  */
 	Error.WriteLine($"acc={acc} eps={eps}");
 	Error.WriteLine($"npoints={xs.Count}");
 	Error.WriteLine($"a={a} y0({a})={ya[0]} y1({a})={ya[1]}");
 	Error.WriteLine($"b={b}");
-	Error.WriteLine($"y0 (b)={y[0]}  y1(b)={y[1]}");
+	Error.WriteLine($"y0(b)={y[0]}  y1(b)={y[1]}");
 	Error.WriteLine($"sin(b)={Sin(b)} cos(b)={Cos(b)}");
 
 /* Test to see if the precision of our Runge-Kutta solution satisfies the true solution within the required precision */
