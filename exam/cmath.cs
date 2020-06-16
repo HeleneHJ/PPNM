@@ -72,28 +72,28 @@ public static bool approx(complex a, complex b, double abserr=1e-9, double reler
 	else return false;
 	}
 
-public static bool largest(complex a, complex b){
-	double c=abs(a),d=abs(b);
-	if( c>d ) return true;	// if b is smaller than a
-	else return false;
-	}
+// public static bool largest(complex a, complex b){
+// 	double c=abs(a),d=abs(b);
+// 	if( c>d ) return true;	// if b is smaller than a
+// 	else return false;
+// 	}
 
-public static bool largest(double a, complex b){
-	if( a>abs(b) ) return true;	// if b is smaller than a
-	else return false;
-	}
+// public static bool largest(double a, complex b){
+// 	if( a>abs(b) ) return true;	// if b is smaller than a
+// 	else return false;
+// 	}
 
-public static bool largerequal(complex a, complex b){
-	double c=abs(a),d=abs(b);
-	if( c>=d ) return true;	// if b is larger than a
-	else return false;
-	}
+// public static bool largerequal(complex a, complex b){
+// 	double c=abs(a),d=abs(b);
+// 	if( c>=d ) return true;	// if b is larger than a
+// 	else return false;
+// 	}
 
 public static bool equal(complex a, complex b){
 	double c=abs(a),d=abs(b);
 	if( d==c ) return true;	// if b is equal to a
 	else return false;
-	}
+ }
 
 public static complex min(complex a, complex b){
 	double c=abs(a);
@@ -103,9 +103,9 @@ public static complex min(complex a, complex b){
 }
 
 public static complex max(complex a, complex b){
-	double c=abs(a);
-	double d=abs(b);
-	if(c>=d){ return a; }
+	// double c=abs(a);
+	// double d=abs(b);
+	if(abs(a)>=abs(b)){ return a; }
 	else { return b; }
 }
 

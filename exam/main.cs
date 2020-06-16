@@ -20,11 +20,12 @@ F=delegate(complex x, cvector y){
 
 static void Main(){
 	complex I = new complex(0,1);
-	// complex a=1+1*I;	 	 			// boundary condition
-	complex a=0+0*I;
-	cvector ya=new cvector(a,1.29845658+0.634963*I);	// boundary condition, {a,y(a)}
+	complex a=(1.0/2)*PI+(1.0/2)*PI*I; // boundary condition
+	// complex a=1+1*I;
+	// cvector ya=new cvector(a,1.29845658+0.634963*I);	// boundary condition, {a,y(a)}
+	cvector ya=new cvector(a,2.50917847866+0*I);	// boundary condition, {a,y(a)}
 	complex b=PI+PI*I;				// "end" value
-	complex h=0.1+0.1*I;				// step size
+	complex h=0.01+0.01*I;				// step size
 	double acc=1e-3;			// precision (used in "approx")
 	double eps=1e-3;			// precision (used in "approx")
 	var xs=new List<complex>();	// x-values (to be filled)
@@ -47,6 +48,9 @@ else
 
 	for(int i=0;i<xs.Count;i++)
 		// WriteLine($"{xs[i]} {ys[i][0]} {ys[i][1]}");
-		WriteLine($"{abs(xs[i])} {abs(ys[i][0])} {abs(ys[i][1])}");
+		// WriteLine($"{abs(xs[i])} {abs(ys[i][0])} {abs(ys[i][1])}");
+		// WriteLine($"{(xs[i]).Re} {(ys[i][0]).Re} {(ys[i][1]).Re}");
+		// WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {abs(ys[i][0])} {abs(ys[i][1])}");
+		WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {(ys[i][0]).Re} {(ys[i][0]).Im} {(ys[i][1]).Re} {(ys[i][1]).Im}");
 }
 }
