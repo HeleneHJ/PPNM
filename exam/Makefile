@@ -3,7 +3,7 @@ PLOT = plot.svg
 all: out.txt plot.svg
 
 out.txt: main.exe
-	mono $< 1> $@ 2> out2.txt
+	mono $< 1> $@ 2> log
 	
 main.exe: main.cs matlib.dll
 	mcs $< -reference:matlib.dll
