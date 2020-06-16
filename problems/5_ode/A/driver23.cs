@@ -52,8 +52,10 @@ do{
 		if(er[i]==0)er[i]=tol[i]/4;
 		}
 	double factor=tol[0]/Abs(er[0]);
+	WriteLine($"factor {factor}");
 	for(int i=1; i<tol.size; i++)
 		factor=Min(factor,Abs(tol[i]/er[i]));
+	WriteLine($"factor {factor}");
 	double hnew = h*Min( Pow(factor,0.25)*0.95, 2);
 	int ok=1;
 	for(int i=0;i<tol.size;i++)if(Abs(er[i])>tol[i])ok=0;

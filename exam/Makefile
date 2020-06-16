@@ -9,7 +9,7 @@ main.exe: main.cs matlib.dll
 	mcs $< -reference:matlib.dll
 
 LIBDIR = ../matlib
-matlib.dll: driver.cs rkstep23.cs cvector.cs $(LIBDIR)/matrix/vector.cs $(LIBDIR)/complex/cmath.cs $(LIBDIR)/complex/complex.cs
+matlib.dll: driver.cs rkstep23.cs cvector.cs cmath.cs $(LIBDIR)/matrix/vector.cs $(LIBDIR)/complex/complex.cs
 	mcs -target:library -out:$@ $^
 
 clean:

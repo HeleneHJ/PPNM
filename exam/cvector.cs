@@ -25,14 +25,14 @@ public cvector(complex a, complex b, complex c)
 	{ data = new complex[]{a,b,c}; }
 public cvector(complex a, complex b, complex c, complex d)
 	{ data = new complex[]{a,b,c,d}; }
-// public cvector(string s){
-//         string[] words = s.Split(',',' ');
-//         int n = words.Length;
-//         data = new complex[n];
-//         for(int i=0;i<size;i++){
-//                         this[i]=complex.Parse(words[i]);
-//                         }
-// 	}
+public cvector(string s){
+        string[] words = s.Split(',',' ');
+        int n = words.Length;
+        data = new complex[n];
+        for(int i=0;i<size;i++){
+                        this[i]=double.Parse(words[i]);
+                        }
+	}
 
 
 public static implicit operator cvector (complex[] a){ return new cvector(a); }
