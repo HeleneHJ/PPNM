@@ -53,7 +53,7 @@ static void Main(){
 		// WriteLine($"{abs(xs[i])} {abs(ys[i][0])} {abs(ys[i][1])}");
 		// WriteLine($"{(xs[i]).Re} {(ys[i][0]).Re} {(ys[i][1]).Re}");
 		// WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {abs(ys[i][0])} {abs(ys[i][1])}");
-		WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {(ys[i][0]).Re} {(ys[i][0]).Im} {(ys[i][1]).Re} {(ys[i][1]).Im}");
+		WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {(ys[i][0]).Re} {(ys[i][0]).Im} {(ys[i][1]).Re} {(ys[i][1]).Im} {abs(ys[i][0])} {abs(ys[i][1])}");
 	}
 }
 }
