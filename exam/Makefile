@@ -1,4 +1,4 @@
-all: out.txt sinRe.svg sinIm.svg cosRe.svg cosIm.svg
+all: out.txt sinRe.svg sinIm.svg cosRe.svg cosIm.svg plot.svg #plot.svg plot2.svg  
 
 out.txt: main.exe
 	mono $< 1> $@ 2> log
@@ -13,13 +13,12 @@ matlib.dll: driver.cs rkstep23.cs cvector.cs cmath.cs $(LIBDIR)/matrix/vector.cs
 clean:
 	rm -f *.dll *.exe out* 
 
-
 sinRe.svg: out.txt Makefile
 	echo '\
 	set term svg background rgb "white" font "Arial,16";\
 	set out "sinRe.svg";\
 	set view ,300;\
-	set title "|sin(z)|";\
+	set title "Re[sin(z)]";\
 	set hidden3d;\
 	set pm3d;\
 	set dgrid3d;\
@@ -38,7 +37,7 @@ sinIm.svg: out.txt Makefile
 	set term svg background rgb "white" font "Arial,16";\
 	set out "sinIm.svg";\
 	set view ,300;\
-	set title "|sin(z)|";\
+	set title "Im[sin(z)]";\
 	set hidden3d;\
 	set pm3d;\
 	set dgrid3d;\
@@ -57,7 +56,7 @@ cosRe.svg: out.txt Makefile
 	set term svg background rgb "white" font "Arial,16";\
 	set out "cosRe.svg";\
 	set view ,300;\
-	set title "|cos(z)|";\
+	set title "Re[cos(z)]";\
 	set hidden3d;\
 	set pm3d;\
 	set dgrid3d;\
@@ -76,7 +75,7 @@ cosIm.svg: out.txt Makefile
 	set term svg background rgb "white" font "Arial,16";\
 	set out "cosIm.svg";\
 	set view ,300;\
-	set title "|cos(z)|";\
+	set title "Im[cos(z)]";\
 	set hidden3d;\
 	set pm3d;\
 	set dgrid3d;\
@@ -90,18 +89,38 @@ cosIm.svg: out.txt Makefile
 	splot "out.txt" using 1:2:6 with lines notitle;\
 	'|gnuplot
 
+
+
+
+
 #set contour both;\
 
-# $(PLOT): $(DATA) Makefile
+# plot.svg: out.txt Makefile
 # 	echo '\
 # 	set term svg background rgb "white";\
-# 	set out "$(PLOT)";\
+# 	set out "plot.svg";\
+# 	set title "Re";\
 # 	set key out;\
 # 	set tics out;\
 # 	set xlabel "x";\
 # 	plot \
-# 	 "$(DATA)" using 1:2 with points pt 7 ps 0.5 title "y_0" \
-# 	,"$(DATA)" using 1:3 with points pt 5 ps 0.5 title "y_1" \
+# 	 "out.txt" index 0 using 1:2 with points pt 7 ps 0.5 title "y_0" \
+# 	,"out.txt" index 0 using 1:3 with points pt 5 ps 0.5 title "y_1" \
+#  	,sin(x) title "sin"\
+# 	,cos(x) title "cos"\
+# 	'|gnuplot
+	
+# plot2.svg: out.txt Makefile
+# 	echo '\
+# 	set term svg background rgb "white";\
+# 	set out "plot2.svg";\
+# 	set title "Im";\
+# 	set key out;\
+# 	set tics out;\
+# 	set xlabel "x";\
+# 	plot \
+# 	 "out.txt" index 1 using 1:2 with points pt 7 ps 0.5 title "y_0" \
+# 	,"out.txt" index 1 using 1:3 with points pt 5 ps 0.5 title "y_1" \
 #  	,sin(x) title "sin"\
 # 	,cos(x) title "cos"\
 # 	'|gnuplot

@@ -92,15 +92,15 @@ public cvector map(System.Func<complex,complex>f){
 	return v;
 	}
 
-// public double norm(){
-// 	double meanabs=0;
-// 	for(int i=0;i<size;i++)meanabs+=abs(this[i]);
-// 	if(meanabs==0)meanabs=1;
-// 	meanabs/=size;
-// 	double sum=0;
-// 	for(int i=0;i<size;i++)sum+=(this[i]/meanabs)*(this[i]/meanabs);
-// 	return meanabs*Sqrt(sum);
-// 	}
+public double norm(){
+	double meanabs=0;
+	for(int i=0;i<size;i++)meanabs+=abs(this[i]);
+	if(meanabs==0)meanabs=1;
+	meanabs/=size;
+	double sum=0;
+	for(int i=0;i<size;i++)sum+=(abs(this[i])/meanabs)*(abs(this[i])/meanabs);
+	return meanabs*Sqrt(sum);
+	}
 
 public cvector copy(){
 	cvector b=new cvector(this.size);
@@ -131,9 +131,13 @@ public bool approx(cvector o){
 
 public static cvector operator*(double a, cvector v){
 	cvector r=new cvector(v.size);
-	for(int i=0;i<v.size;i++) r[i]=a*v[i].Re+v[i].Im*I;
+	for(int i=0;i<v.size;i++) r[i]=a*v[i].Re+a*v[i].Im*I;
 	return r; }
 
+public static cvector operator*(cvector v, double a){
+	cvector r=new cvector(v.size);
+	for(int i=0;i<v.size;i++) r[i]=a*v[i].Re+a*v[i].Im*I;
+	return r; }
 
 
 }//vector

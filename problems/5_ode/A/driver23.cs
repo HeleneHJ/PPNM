@@ -5,8 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public partial class ode{
-public static vector rk23
-(
+public static vector rk23(
 	Func<double,vector,vector> F, /* equation */
 	double a, vector ya, /* initial condition: {a,y(a)} */
 	double b, 
@@ -18,7 +17,8 @@ public static vector rk23
 	List<vector> ylist=null,
 	int limit=999
 ){
-return driver23( F, a, ya, b, acc, eps, h, xlist, ylist, limit, rkstep23);}
+return driver23( F, a, ya, b, acc, eps, h, xlist, ylist, limit, rkstep23);
+}
 
 public static vector driver23(
 	Func<double,vector,vector> F, /* equation */
@@ -29,10 +29,7 @@ public static vector driver23(
 	Func<
 		Func<double,vector,vector>,
 		double,vector,double,vector[]
-	> stepper
-	)
-
-{// Generic ODE driver
+	> stepper){// Generic ODE driver
 int nsteps=0;
 if(xlist!=null) {xlist.Clear(); xlist.Add(a);}
 if(ylist!=null) {ylist.Clear(); ylist.Add(ya);}
@@ -54,8 +51,6 @@ do{
 	double factor=tol[0]/Abs(er[0]);
 	for(int i=1; i<tol.size; i++)
 		factor=Min(factor,Abs(tol[i]/er[i]));
-	tol.print("tol:");
-	er.print("er");
 	double hnew = h*Min( Pow(factor,0.25)*0.95, 2);
 	int ok=1;
 	for(int i=0;i<tol.size;i++)if(Abs(er[i])>tol[i])ok=0;
