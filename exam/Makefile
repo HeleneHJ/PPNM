@@ -1,4 +1,4 @@
-all: out.txt sinRe.svg sinIm.svg cosRe.svg cosIm.svg sinabs.svg cosabs.svg#plot.svg #plot.svg plot2.svg  
+all: out.txt sinRe.svg sinIm.svg cosRe.svg cosIm.svg sinabs.svg cosabs.svg
 
 out.txt: main.exe
 	mono $< 1> $@ 2> log
@@ -129,35 +129,4 @@ cosabs.svg: out.txt Makefile
 	'|gnuplot
 
 
-#set contour both;\
-
-# plot.svg: out.txt Makefile
-# 	echo '\
-# 	set term svg background rgb "white";\
-# 	set out "plot.svg";\
-# 	set title "Re";\
-# 	set key out;\
-# 	set tics out;\
-# 	set xlabel "x";\
-# 	plot \
-# 	 "out.txt" index 0 using 1:2 with points pt 7 ps 0.5 title "y_0" \
-# 	,"out.txt" index 0 using 1:3 with points pt 5 ps 0.5 title "y_1" \
-#  	,sin(x) title "sin"\
-# 	,cos(x) title "cos"\
-# 	'|gnuplot
-	
-# plot2.svg: out.txt Makefile
-# 	echo '\
-# 	set term svg background rgb "white";\
-# 	set out "plot2.svg";\
-# 	set title "Im";\
-# 	set key out;\
-# 	set tics out;\
-# 	set xlabel "x";\
-# 	plot \
-# 	 "out.txt" index 1 using 1:2 with points pt 7 ps 0.5 title "y_0" \
-# 	,"out.txt" index 1 using 1:3 with points pt 5 ps 0.5 title "y_1" \
-#  	,sin(x) title "sin"\
-# 	,cos(x) title "cos"\
-# 	'|gnuplot
 	

@@ -18,9 +18,9 @@ F=delegate(double x, vector y){
 
 static void Main(){
 	double a=0;					// boundary condition
-	vector ya=new vector(0,1);	// boundary condition, {a,y(a)}
+	vector ya=new vector(0,1);	// initial function values
 	double b=2*PI;				// "end" value
-	double h=1;				// step size
+	double h=1;					// step size
 	double acc=1e-3;			// precision (used in "approx")
 	double eps=1e-3;			// precision (used in "approx")
 	var xs=new List<double>();	// x-values (to be filled)

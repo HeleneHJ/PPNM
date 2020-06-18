@@ -1,6 +1,10 @@
 acc=0.001 eps=0.001
-npoints=83
-a=-3.14+-3.14i: y0(a)=0+11.5i y1(a)=-11.5+0i
-b=3.14+3.14i: y0(b)=-2.96+5.03i  y1(b)=-5.03+-2.96i
+npoints=64
+a=-3.14+3.14i: y0(a)=0+11.5i y1(a)=-11.5+0i
+b=3.14+3.14i: y0(b)=0.788+10.8i  y1(b)=-10.8+0.788i
 	  sin(b)=1.42e-15+-11.5i  cos(b)=-11.6+-1.41e-15i
 test failed
+
+I can't seem to be able to get it quite right (there seems to be a sign error).
+I have made separate plots of the real and imaginary parts of both functions (sin(z) and cos(z)).
+Though not as precise as I would have liked, they do seem quite similar to the same plots from WolframAlpha (also in the folder).

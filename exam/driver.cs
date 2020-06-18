@@ -7,7 +7,7 @@ using static cmath;
 
 public partial class ode{
 
-public static cvector rk23(Func<complex,cvector,cvector> F, complex a, cvector ya, complex b, complex h, double acc, double eps, List<complex> xlist=null, List<cvector> ylist=null, int limit=999){
+public static cvector rk23(Func<complex,cvector,cvector> F, complex a, cvector ya, complex b, complex h, double acc, double eps, List<complex> xlist=null, List<cvector> ylist=null, int limit=9999){
 	return driver23(F,a,ya,b,acc,eps,h,xlist,ylist,limit,rkstep23);
 }//rk23
 
@@ -16,16 +16,15 @@ public static cvector driver23(Func<complex,cvector,cvector> F, complex a, cvect
 	if(xlist!=null) {xlist.Clear(); xlist.Add(a);}
 	if(ylist!=null) {ylist.Clear(); ylist.Add(ya);}		
 	do{
-		if(abs(a+h)>=abs(b)) return ya;	//if a is larger than b
-		// if(a.Re>=b.Re) return ya;	//if a is larger than b
-		// if(Abs(a.Im)>=Abs(b.Im)) return ya;	//if a is larger than b
+		if(abs(a+h)>=abs(b)) return ya;	
+		if(a.Re+h.Re>=b.Re) return ya;	
 
 		if(nsteps>limit){
 			Error.Write($"ode.driver: nsteps>{limit}\n");
 			return ya;
 			}
 		
-		if(abs(a+h)>abs(b)) h=b-a; 	//if a+h is larger than b
+		if(abs(a+h)>abs(b)) h=b-a; 
 		cvector[] trial=stepper(F,a,ya,h);
 		cvector yh=trial[0];
 		double er=trial[1].norm();
