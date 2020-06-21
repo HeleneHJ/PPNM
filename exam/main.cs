@@ -42,10 +42,9 @@ static void Main(){
 	Error.WriteLine("test failed");
 
 	Error.WriteLine("\nThough the result is very close to the expected result, I can't seem to be able to get it quite right.\n");
-	// Error.WriteLine("One could have made plots of the result, but I have chosen not to since it was not specified in the exam description.\n");
 
-	// for(int i=0;i<xs.Count;i++){ //for making plots
-	// 	WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {(ys[i][0]).Re} {(ys[i][0]).Im} {(ys[i][1]).Re} {(ys[i][1]).Im} {abs(ys[i][0])} {abs(ys[i][1])}");
-	// }
+	for(int i=0;i<xs.Count;i++){ //for making plots
+		WriteLine($"{(xs[i]).Re} {(xs[i]).Im} {(ys[i][0]).Re} {(ys[i][0]).Im} {(ys[i][1]).Re} {(ys[i][1]).Im} {abs(ys[i][0])} {abs(ys[i][1])}");
+	}
 }//Main
 }//main
