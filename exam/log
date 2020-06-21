@@ -1,10 +1,13 @@
-acc=0.001 eps=0.001
-npoints=64
-a=-3.14+3.14i: y0(a)=0+11.5i y1(a)=-11.5+0i
-b=3.14+3.14i: y0(b)=0.788+10.8i  y1(b)=-10.8+0.788i
-	  sin(b)=1.42e-15+-11.5i  cos(b)=-11.6+-1.41e-15i
+Exam project #5: Generalize the ODE solver of your choice to solve ODE with complex-valued functions of complex variable along a straight line between the given start- and end-point.
+
+accuracy: acc=0.001 eps=0.001
+npoints=89
+start point:	a=0.01+0.01i, end point: b=6.28+6.28i
+end point:	b=6.28+6.28i
+Function values at start point: y0(a)=0.1+0.0997i 	y1(a)=1+-0.01i
+Function values at end point:   y0(b)=1.31+269i  	y1(b)=269+-1.31i
+Expected values at end point:	sin(b)=-6.56e-14+268i  cos(b)=268+6.56e-14i
 test failed
 
-I can't seem to be able to get it quite right (there seems to be a sign error).
-I have made separate plots of the real and imaginary parts of both functions (sin(z) and cos(z)).
-Though not as precise as I would have liked, they do seem quite similar to the same plots from WolframAlpha (also in the folder).
+Though the result is very close to the expected result, I can't seem to be able to get it quite right.
+

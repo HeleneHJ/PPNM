@@ -1,4 +1,5 @@
 // (C) 2020 Dmitri Fedorov; License: GNU GPL v3+; no warranty.
+/* I have changed this matlib to be able to construct and work with vectors with complex entries */ 
 using System;
 using System.IO;
 using static System.Math;
@@ -93,13 +94,9 @@ public cvector map(System.Func<complex,complex>f){
 	}
 
 public double norm(){
-	double meanabs=0;
-	for(int i=0;i<size;i++)meanabs+=abs(this[i]);
-	if(meanabs==0)meanabs=1;
-	meanabs/=size;
 	double sum=0;
-	for(int i=0;i<size;i++)sum+=(abs(this[i])/meanabs)*(abs(this[i])/meanabs);
-	return meanabs*Sqrt(sum);
+	for(int i=0;i<size;i++)sum+=abs(this[i])*abs(this[i]);
+	return Sqrt(sum);
 	}
 
 public cvector copy(){
@@ -126,9 +123,7 @@ public bool approx(cvector o){
 	return true;
 	}
 
-
-/*_________________________________________________________*/
-
+/* My Additions: */
 public static cvector operator*(double a, cvector v){
 	cvector r=new cvector(v.size);
 	for(int i=0;i<v.size;i++) r[i]=a*v[i].Re+a*v[i].Im*I;
@@ -138,6 +133,4 @@ public static cvector operator*(cvector v, double a){
 	cvector r=new cvector(v.size);
 	for(int i=0;i<v.size;i++) r[i]=a*v[i].Re+a*v[i].Im*I;
 	return r; }
-
-
 }//vector

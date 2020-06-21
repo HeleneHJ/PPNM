@@ -44,7 +44,6 @@ public static double abs (complex z){
 	else   { t=x/y; return y*sqrt(t*t+1); }
 	}
 
-//public static double  log(double x){return Math.Log (x);}
 public static complex log(complex z){
 	return new complex( Math.Log(abs(z)), arg(z) ); }
 
@@ -61,9 +60,7 @@ public static complex pow (this complex a, double x){
 public static complex pow (this complex a, complex b){
 	return exp(b*log(a)); }
 
-/*_________________________________________________________*/
-
-
+/* My Additions: */
 public static bool approx(complex a, complex b, double abserr=1e-9, double relerr=1e-9){
 	double d=abs(a-b),s=abs(a)+abs(b);
 	if (abs(a)==abs(b)) return true;
@@ -73,9 +70,7 @@ public static bool approx(complex a, complex b, double abserr=1e-9, double reler
 	}
 
 public static complex min(complex a, complex b){
-	double c=abs(a);
-	double d=abs(b);
-	if(abs(a)<=abs(d)){ return a; }
+	if(abs(a)<=abs(b)){ return a; }
 	else { return b; }
 }
 
@@ -83,5 +78,4 @@ public static complex max(complex a, complex b){
 	if(abs(a)>=abs(b)){ return a; }
 	else { return b; }
 }
-
 }// cmath
